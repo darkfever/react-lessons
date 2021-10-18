@@ -1,43 +1,25 @@
 import React, { useState } from "react"
 import "./list.css";
+import Lists from "../../components/lists";
 
 function List() {
     const [arr, setArr] = useState([
-        {id: 0, title: 'Maria Anders', description: 'Germany', style: {}},
-        {id: 1, title: 'Christina Berglund', description: 'Sweden', style: {}},
+        {title: 'Maria Anders', description: 'Germany', checked: false},
+        {title: 'Christina Berglund', description: 'Sweden', checked: false},
     ])
-    const onChange = (event) => {
-        if(event.target.checked){
-            let newarr = [...arr]
-            newarr[event.target.id].style = {textDecoration: 'line-through'}
-            setArr(newarr)
-        } else {
-            let newarr = [...arr]
-            newarr[event.target.id].style = {}
-            setArr(newarr)
-        }
+    const onChange = (index) => {
+        let newarr = [...arr]
+        newarr[index].checked = !newarr[index].checked
+        setArr(newarr)
+       
     }
-    const arrlist = arr.map((item, i) => 
-        <tr key={i}>
-            <td style={item.style}>{item.id}</td>
-            <td style={item.style}>{item.title}</td>
-            <td style={item.style}>{item.description}</td>
-            <td>
-                <input type="checkbox" id={item.id} onChange={onChange}/>
-            </td>
-        </tr>
-    )
+    const onClick = (index) => {
+        let newarr = arr.filter((item, i) => i !== index)
+        setArr(newarr)
+    }
 
     return (
-        <table className="customers">
-            <tr>
-                <th>id</th>
-                <th>title</th>
-                <th>description</th>
-                <th>checked</th>
-            </tr>
-            {arrlist}
-        </table>
+        <Lists lists={arr} onChange={onChange} onClick={onClick}/>
     )
 }
 

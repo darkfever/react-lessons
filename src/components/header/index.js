@@ -1,11 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import "./header.css";
 
-function Header() {
-    const [isAuth, setAuth] = useState(false);
-    const onClick = () => {
-        setAuth(!isAuth)
-    }
+function Header(props) {
+
+    const {isAuth, onClick} = props;
+    console.log(isAuth)
 
     return (
         <div className="header">

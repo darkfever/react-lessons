@@ -37,7 +37,6 @@ function User() {
         </tr>
     )
     
-    
     return (
         <div>
             <button className="enter" name="age" onClick={onClick}>по возрасту</button>

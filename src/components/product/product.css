@@ -1,0 +1,7 @@
+.actions{
+    display: flex;
+    justify-content: space-around;
+}
+.checkbox{
+    margin-top: 15px;
+}
