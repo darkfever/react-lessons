@@ -30,9 +30,9 @@ function Products() {
     }
     const items = products.filter(item => item.checked === false)
     let total = 0
-    items.map(item => {
-        total += item.price
-    })
+    items.forEach(item => {
+        total += item.price * item.count
+    });
     console.log(total)
     return (
         <>

@@ -1,6 +1,7 @@
 import React from "react"
 import "./main.css";
 import News from "../../components/news";
+import { Link } from "react-router-dom";
 import Header from "../../components/header";
 import { useState } from "react/cjs/react.development";
 
@@ -19,6 +20,7 @@ function Main() {
         <div className="main">
             <Header isAuth={isAuth} onClick={onClick}/>
             <News news={news}/>
+            <Link to={'/users'}>Go to users</Link>
         </div>
     )
 }
